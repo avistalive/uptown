@@ -1,6 +1,7 @@
 "use client";
 
 import { setting } from "@/actions/settings";
+import LogoutButton from "@/components/auth/logout-button";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { useSession } from "next-auth/react";
@@ -23,14 +24,9 @@ const SettingPage = () => {
 
   return (
     <Card className="w-[600px]">
-      <CardHeader>
-        <p> Setting </p>
-      </CardHeader>
-      <CardContent>
-        <Button disabled={isPending} onClick={onClick}>
-          Update Name
-        </Button>
-      </CardContent>
+     <LogoutButton>
+      Logout
+     </LogoutButton>
     </Card>
   );
 };

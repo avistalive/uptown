@@ -18,8 +18,8 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { FormError } from "../form-error";
 import { FormSuccess } from "../form-success";
-// import { login } from "@/actions/login";
 import Link from "next/link";
+import { login } from "@/actions/login";
 
 export const LoginForm = () => {
   const searchParams = useSearchParams();
@@ -41,28 +41,28 @@ export const LoginForm = () => {
   });
 
   const onSubmit = (values: z.infer<typeof LoginSchema>) => {
-    // setError("");
-    // setSuccess("");
-    // startTransition(() => {
-    //   login(values)
-    //     .then((data) => {
-    //       if (data?.error) {
-    //         form.reset();
-    //         setError(data.error);
-    //       }
-    //       if (data?.success) {
-    //         form.reset();
-    //         setSuccess(data.success);
-    //       }
+    setError("");
+    setSuccess("");
+    startTransition(() => {
+      login(values)
+        .then((data) => {
+          if (data?.error) {
+            form.reset();
+            setError(data.error);
+          }
+          if (data?.success) {
+            form.reset();
+            setSuccess(data.success);
+          }
 
-    //       if (data?.twoFactor) {
-    //         setShowTwoFactor(true);
-    //       }
-    //     })
-    //     .catch(() => {
-    //       setError("Something went Wrong!");
-    //     });
-    // });
+          // if (data?.twoFactor) {
+          //   setShowTwoFactor(true);
+          // }
+        })
+        .catch(() => {
+          setError("Something went Wrong!");
+        });
+    });
   };
 
   return (

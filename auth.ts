@@ -6,6 +6,10 @@ import { db } from "./lib/db";
 import { getUserById } from "./data/user";
 import { UserRole } from "@prisma/client";
 import { getTwoFactorConfirmationUserId } from "./data/two-factor-confirmation";
+import Credentials from "next-auth/providers/credentials";
+import { LoginSchema } from "./schemas";
+import { getUserByEmail } from "./data/user";
+import bcrypt from "bcryptjs";
 
 export const {
   handlers: { GET, POST },
@@ -62,9 +66,9 @@ export const {
       if (session.user) {
         session.user.isTwoFactorEnabled = token.isTwoFactorEnabled as boolean;
       }
-      if(session.user){
-        session.user.name= token.name;
-        session.user.email = token.email ?? ""
+      if (session.user) {
+        session.user.name = token.name;
+        session.user.email = token.email ?? "";
       }
       return session;
     },
@@ -77,14 +81,35 @@ export const {
       if (!existingUser) return token;
 
       token.name = existingUser.name;
-      token.email = existingUser.email
+      token.email = existingUser.email;
       token.role = existingUser.role;
 
-      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled
+      token.isTwoFactorEnabled = existingUser.isTwoFactorEnabled;
       return token;
     },
   },
   adapter: PrismaAdapter(db),
   session: { strategy: "jwt" },
   ...authConfig,
+  providers: [
+    ...(authConfig.providers || []),
+    Credentials({
+      async authorize(credentials) {
+        const validatedFields = LoginSchema.safeParse(credentials);
+
+        if (validatedFields.success) {
+          const { email, password } = validatedFields.data;
+
+          const user = await getUserByEmail(email);
+          if (!user || !user.password) return null;
+
+          const passwordsMatch = await bcrypt.compare(password, user.password);
+
+          if (passwordsMatch) return user;
+        }
+
+        return null;
+      },
+    }),
+  ],
 });
