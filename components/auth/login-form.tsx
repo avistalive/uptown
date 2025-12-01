@@ -55,9 +55,9 @@ export const LoginForm = () => {
             setSuccess(data.success);
           }
 
-          // if (data?.twoFactor) {
-          //   setShowTwoFactor(true);
-          // }
+          if (data?.twoFactor) {
+            setShowTwoFactor(true);
+          }
         })
         .catch(() => {
           setError("Something went Wrong!");
@@ -76,23 +76,23 @@ export const LoginForm = () => {
         <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
           <div className="space-y-4">
             {showTwoFactor && (
-               <FormField
-               control={form.control}
-               name="code"
-               render={({ field }) => (
-                 <FormItem>
-                   <FormLabel>Two Factor Code</FormLabel>
-                   <FormControl>
-                     <Input
-                       {...field}
-                       disabled={isPending}
-                       placeholder="123456"
-                     />
-                   </FormControl>
-                   <FormMessage />
-                 </FormItem>
-               )}
-             />
+              <FormField
+                control={form.control}
+                name="code"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Two Factor Code</FormLabel>
+                    <FormControl>
+                      <Input
+                        {...field}
+                        disabled={isPending}
+                        placeholder="123456"
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
             )}
             {!showTwoFactor && (
               <>
