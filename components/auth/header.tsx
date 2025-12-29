@@ -1,28 +1,22 @@
-import React from 'react'
-import { Poppins } from 'next/font/google'
-import { cn } from '@/lib/utils';
+import React from "react";
+import { Poppins } from "next/font/google";
+import { cn } from "@/lib/utils";
 
 const font = Poppins({
-    subsets: ['latin'],
-    weight: ["600"],
-})
+  subsets: ["latin"],
+  weight: ["600"],
+});
 
-interface HeaderProps{
-    label : string;
+interface HeaderProps {
+  label: string;
 }
-const Header = ({
-    label,
-}:HeaderProps) => {
+const Header = ({ label }: HeaderProps) => {
   return (
-    <div className='w-full flex flex-col gap-y-3 items-center justify-center'>
-        <h1 className={cn("text-3xl font-semibold", font.className)}>
-        easyRWH
-        </h1>
-        <p className='text-muted-foreground text-sm'>
-            {label}
-        </p>
+    <div className="w-full flex flex-col gap-y-3 items-center justify-center">
+      <h1 className={cn("text-3xl font-semibold", font.className)}>Auth</h1>
+      <p className="text-muted-foreground text-sm">{label}</p>
     </div>
-  )
-}
+  );
+};
 
-export default Header
+export default Header;

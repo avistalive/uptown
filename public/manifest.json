@@ -1,6 +1,6 @@
 {
-  "name": "easyRWH",
-  "short_name": "easyRWH",
+  "name": "Auth",
+  "short_name": "Auth",
   "description": "Easy Rooftop Rainwater Harvesting Assessment Platform",
   "icons": [
     {
