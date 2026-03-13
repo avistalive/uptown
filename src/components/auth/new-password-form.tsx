@@ -8,7 +8,7 @@ import { Form, FormMessage, FormControl, FormField, FormItem, FormLabel } from '
 import { NewPasswordSchema } from '@/schemas'
 import { Input } from '../ui/input'
 import { Button } from '../ui/button'
-import { newPassword } from '@/actions/new-passord'
+import { newPassword } from '@/actions/new-password'
 import { useSearchParams } from 'next/navigation'
 import { toast } from 'sonner'
 

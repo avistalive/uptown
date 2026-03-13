@@ -3,6 +3,7 @@
 import * as z from "zod"
 
 import { ResetSchema } from "@/schemas"
+import { db } from "@/lib/db"
 import { getUserByEmail } from "@/data/user"
 import { sendPasswordResentEmail } from "@/lib/mail"
 import { generatePasswordResetToken } from "@/lib/token"
@@ -17,10 +18,13 @@ export const reset = async(values : z.infer<typeof ResetSchema> )=> {
 
     const {email} = validatedFields.data
 
-    const existingUser = await getUserByEmail(email);
+    const existingUser = await db.user.findUnique({
+      where: { email },
+      select: { id: true }
+    });
 
     if(!existingUser){
-return { error : "Email not found!"}
+      return { error : "Email not found!"}
     }
 
     //Todo Generate token and send

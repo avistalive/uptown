@@ -34,7 +34,10 @@ export const newPassword = async (
         return { error : "Token is no longer active!"}
     }
 
-    const existingUser = await getUserByEmail(existingToken.email);
+    const existingUser = await db.user.findUnique({
+        where: { email: existingToken.email },
+        select: { id: true }
+    });
 
     if(!existingUser){
         return { error : "Email does not exists!"}

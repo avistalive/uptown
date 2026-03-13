@@ -1,9 +1,9 @@
-const AuthLayout= ({
+const AuthLayout = ({
     children
-}:{
+}: {
     children: React.ReactNode
-})=>{
-    return(
+}) => {
+    return (
         <div className="h-full flex items-center justify-center bg-sky-300">
             {children}
         </div>

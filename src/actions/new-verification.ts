@@ -36,7 +36,8 @@ export const newVerification = async (token: string): Promise<VerificationRespon
 
     // Get the user
     const existingUser = await db.user.findUnique({
-      where: { email: existingToken.email }
+      where: { email: existingToken.email },
+      select: { id: true }
     });
 
     if (!existingUser) {

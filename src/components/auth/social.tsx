@@ -3,7 +3,7 @@
 import { signIn } from "next-auth/react"
 import { Button } from "../ui/button"
 import { BsGoogle } from "react-icons/bs"
-import { DEFAULT_LOGIN_REDIRECT } from "@/route"
+import { DEFAULT_LOGIN_REDIRECT } from "@/routes"
 
 
 const Social = () => {

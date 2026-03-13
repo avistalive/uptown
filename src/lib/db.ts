@@ -9,7 +9,12 @@ declare global {
 
 const connectionString = process.env.DATABASE_URL;
 
-const pool = globalThis.pgPool || new Pool({ connectionString });
+const pool = globalThis.pgPool || new Pool({ 
+  connectionString,
+  max: 20,
+  idleTimeoutMillis: 30000,
+  connectionTimeoutMillis: 2000,
+});
 if (process.env.NODE_ENV !== "production") globalThis.pgPool = pool;
 
 const adapter = new PrismaPg(pool as any);
