@@ -1,26 +1,23 @@
-import { Poppins } from "next/font/google";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { LoginButton } from "@/components/auth/login-button";
+import Brand from "@/components/brand";
+import CitySection from "@/components/cities";
+import Faq from "@/components/faqs";
+import Hero from "@/components/hero-section";
+import Intro from "@/components/intro";
+import Stats from "@/components/stats";
+import Services from "@/components/service";
+import Solutions from "@/components/solution";
 
 export default function Home() {
   return (
-    <main className="flex h-full flex-col items-center justify-center bg-sky-300">
-      <div className="space-y-6 text-center">
-        <h1
-          className="text-6xl font-semibold text-white drop-shadow-md"
-        >
-          🔐 Auth
-        </h1>
-        <p className="text-white text-lg">A simple Auth Service</p>
-      </div>
-      <div>
-        <LoginButton>
-          <Button variant="secondary" size="lg">
-            Sign In
-          </Button>
-        </LoginButton>
-      </div>
-    </main>
+    <div className="bg-[#F0ECDF]">
+      <Hero />
+      <Brand />
+      <Intro />
+      <Stats />
+      <CitySection />
+      <Services />
+      <Faq />
+      <Solutions />
+    </div>
   );
 }

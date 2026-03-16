@@ -6,18 +6,20 @@ interface LoginButtonProps {
     children: React.ReactNode;
     mode?: "modal" | "redirect"
     asChild?: boolean;
+    redirect?: string;
 }
 
 export const LoginButton = ({
     children,
     mode = "redirect",
-    asChild
+    asChild,
+    redirect
 }: LoginButtonProps) => {
 
 
     const router = useRouter();
     const onClick = () => {
-        router.push("/auth/login")
+        router.push(redirect || "/auth/login")
     }
 
 if(mode === "modal"){

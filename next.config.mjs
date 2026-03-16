@@ -11,6 +11,10 @@ const pwaConfig = withPWA({
 const nextConfig = {
   reactCompiler: true,
   turbopack: {}, // Required for webpack-based plugins like next-pwa
+  images: {
+    domains: ["images.unsplash.com"],
+  },
 };
+
 
 export default pwaConfig(nextConfig);

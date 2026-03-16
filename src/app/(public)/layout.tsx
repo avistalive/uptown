@@ -1,3 +1,6 @@
+import Footer from "@/components/footer";
+import Navbar from "@/components/navbar";
+
 interface PublicLayoutProps {
   children: React.ReactNode;
 }
@@ -6,8 +9,11 @@ export default async function PublicLayout({
   children,
 }: PublicLayoutProps) {
   return (
-    <div className="h-full bg-sky-300">
+    <>
+      <Navbar signButton />
       {children}
-    </div>
+      <Footer />
+    </>
   );
 }
+
