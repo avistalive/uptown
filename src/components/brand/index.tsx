@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import Slider from "react-infinite-logo-slider";
 import SingleBrand from "./SingleBrand";
 
@@ -31,15 +32,35 @@ export const brandList = [
 ];
 
 function Brand() {
+  const [isMounted, setIsMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return (
+      <section>
+        <div className="py-8 md:py-12">
+          <div className="container mx-auto px-5 sm:px-6">
+            <div className="flex justify-center text-center py-3 sm:py-4">
+              <p className="text-sm sm:text-base text-gray-400">Featured by 1000+ developers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    );
+  }
+
   return (
     <section>
-      <div className="2xl:py-20 py-8 sm:py-11">
+      <div className="py-8 md:py-12">
         <div className="container mx-auto px-5 sm:px-6">
           <div className="gap-4">
             {/* Heading */}
             <div className="flex justify-center text-center py-3 sm:py-4 relative">
               <p
-                className="relative px-2 text-sm sm:text-base text-dark_black/60 dark:text-white/60
+                className="relative px-2 text-sm sm:text-base text-black/60 dark:text-white/60
                     md:before:absolute md:before:right-[-150px] md:before:top-1/2 md:before:h-0.5 md:before:w-36 md:before:bg-linear-to-r md:before:from-gray-800 dark:md:before:from-gray-300 dark:md:before:opacity-100 md:before:opacity-10 md:before:to-transparent md:after:absolute md:after:left-[-150px] md:after:top-1/2 md:after:h-0.5 md:after:w-36 md:after:bg-linear-to-l md:after:from-gray-800 dark:md:after:from-gray-300 md:after:opacity-10 dark:md:after:opacity-100 md:after:to-transparent"
               >
                 Featured by 1000+ developers

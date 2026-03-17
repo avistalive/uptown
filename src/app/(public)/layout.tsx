@@ -1,5 +1,6 @@
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
+import { auth } from "@/auth";
 
 interface PublicLayoutProps {
   children: React.ReactNode;
@@ -8,9 +9,11 @@ interface PublicLayoutProps {
 export default async function PublicLayout({
   children,
 }: PublicLayoutProps) {
+  const session = await auth();
+
   return (
     <>
-      <Navbar signButton />
+      <Navbar signButton={!session} />
       {children}
       <Footer />
     </>

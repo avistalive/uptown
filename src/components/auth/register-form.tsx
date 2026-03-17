@@ -51,15 +51,14 @@ export const RegisterForm = () => {
               name='email'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Email
-                  </FormLabel>
+                  <FormLabel className="font-light text-gray-700">Email</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
                       placeholder='example@gmail.com'
                       type="email"
+                      className="rounded-xl border-midnight/10 h-12 focus-visible:ring-midnight/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -71,15 +70,14 @@ export const RegisterForm = () => {
               name='name'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Name
-                  </FormLabel>
+                  <span className="font-light text-gray-700 text-sm">Name</span>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
-                      placeholder='john'
-                      type="name"
+                      placeholder='John Doe'
+                      type="text"
+                      className="rounded-xl border-midnight/10 h-12 focus-visible:ring-midnight/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -91,15 +89,14 @@ export const RegisterForm = () => {
               name='password'
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>
-                    Password
-                  </FormLabel>
+                  <FormLabel className="font-light text-gray-700">Password</FormLabel>
                   <FormControl>
                     <Input
                       {...field}
                       disabled={isPending}
                       placeholder='******'
                       type="password"
+                      className="rounded-xl border-midnight/10 h-12 focus-visible:ring-midnight/20"
                     />
                   </FormControl>
                   <FormMessage />
@@ -109,9 +106,9 @@ export const RegisterForm = () => {
           </div>
           <Button
             disabled={isPending}
-            onClick={() => { }}
-            type='submit'
-            className='w-full'>
+            type="submit"
+            className="w-full bg-midnight hover:bg-midnight/90 text-white rounded-full py-6 text-base font-medium transition-all duration-300"
+          >
             Create an account
           </Button>
         </form>

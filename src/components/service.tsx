@@ -56,10 +56,10 @@ const Services = () => {
   }, []);
 
   return (
-    <section className="py-12 sm:py-16 md:py-24 bg-[#F0ECDF]">
+    <section className="py-8 md:py-12 bg-white">
       <div className="container mx-auto px-5 sm:px-6">
         {/* Section Title */}
-        <div className="text-center max-w-4xl mx-auto mb-10 sm:mb-14 md:mb-20">
+        <div className="text-center max-w-4xl mx-auto mb-8 sm:mb-10 md:mb-12">
           <h2 className="services-section-title text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light leading-tight text-[#00141D]">
             We execute every project with a focus on{" "}<span className="font-ivy-presto font-normal italic">costs</span>,{" "}<span className="font-ivy-presto font-normal italic">schedules</span>,{" "}<span className="font-ivy-presto font-normal italic">quality</span>,
             and market-tailored solutions.
@@ -71,15 +71,15 @@ const Services = () => {
           {services.map((service, index) => (
             <div
               key={index}
-              className="service-card bg-white border border-[#00141D]/5 p-5 sm:p-7 md:p-10 rounded-2xl sm:rounded-[2rem] shadow-sm hover:shadow-2xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-500 group cursor-pointer flex flex-col items-center text-center"
+              className="service-card bg-white border border-midnight/5 p-5 sm:p-7 md:p-10 rounded-2xl sm:rounded-4xl shadow-sm hover:shadow-2xl hover:-translate-y-1 md:hover:-translate-y-2 transition-all duration-500 group cursor-pointer flex flex-col items-center text-center"
             >
-              <div className="mb-4 sm:mb-5 md:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#00141D]/5 text-[#00141D] group-hover:bg-[#00141D] group-hover:text-white transition-colors duration-500">
+              <div className="mb-4 sm:mb-5 md:mb-6 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-midnight/5 text-midnight group-hover:bg-midnight group-hover:text-white transition-colors duration-500">
                 {service.icon}
               </div>
-              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-ivy-presto text-[#00141D]">
+              <h3 className="text-base sm:text-lg md:text-xl lg:text-2xl font-ivy-presto text-midnight">
                 {service.title}
               </h3>
-              <div className="mt-3 sm:mt-4 w-8 sm:w-12 h-0.5 bg-[#00141D]/10 group-hover:w-16 sm:group-hover:w-20 group-hover:bg-[#00141D] transition-all duration-500"></div>
+              <div className="mt-3 sm:mt-4 w-8 sm:w-12 h-0.5 bg-midnight/10 group-hover:w-16 sm:group-hover:w-20 group-hover:bg-midnight transition-all duration-500"></div>
             </div>
           ))}
         </div>

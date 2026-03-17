@@ -33,9 +33,9 @@ export const ResetForm = () => {
 
   return (
     <CardWrapper
-      headerLabel='Forgot your password ?'
-      backButtonHref='/auth/login'
-      backButtonLabel='Back to login button'
+      headerLabel="Forgot your password?"
+      backButtonHref="/auth/login"
+      backButtonLabel="Back to login"
     >
       <Form {...form}>
         <form
@@ -66,9 +66,9 @@ export const ResetForm = () => {
           </div>
           <Button
             disabled={isPending}
-            onClick={() => { }}
             type='submit'
-            className='w-full'>
+            className="w-full bg-midnight hover:bg-midnight/90 text-white rounded-full py-6 text-base font-medium transition-all duration-300"
+          >
             Send reset email
           </Button>
         </form>

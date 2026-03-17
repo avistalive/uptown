@@ -6,6 +6,8 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useRef } from "react";
 
+import Image from "next/image";
+
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger);
 
@@ -33,16 +35,24 @@ const CityList = [
   },
 ];
 
-const CitySlider = () => {
+interface CitySliderProps {
+  trigger?: string;
+}
+
+const CitySlider = ({ trigger = ".city-section" }: CitySliderProps) => {
   const sliderRef = useRef(null);
 
   useGSAP(() => {
-    // Animate city names with a subtle parallax effect
+    // Only animate city names if it's the desktop section or specifically mobile
+    // Horizontal parallax on mobile inside a swipeable container can be tricky. 
+    // Let's only do it if the trigger is explicitly set and viewport is desktop, 
+    // or just use specific behavior.
+    
     gsap.to(".city-name", { 
       xPercent: -10, 
       ease: "none",
       scrollTrigger: {
-        trigger: ".city-section",
+        trigger: trigger,
         start: "top top",
         end: "bottom top",
         scrub: 1,
@@ -53,25 +63,21 @@ const CitySlider = () => {
     gsap.fromTo(".city-card", 
       { 
         opacity: 0, 
-        scale: 0.8,
-        y: 50
       }, 
       { 
         opacity: 1, 
-        scale: 1,
-        y: 0,
         duration: 0.8,
-        stagger: 0.2,
+        stagger: 0.1,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: ".city-section",
+          trigger: trigger,
           start: "top 80%",
           toggleActions: "play none none reverse"
         }
       }
     );
 
-  }, []);
+  }, [trigger]);
 
   return (
     <div 
@@ -83,13 +89,14 @@ const CitySlider = () => {
           key={`${city.name}-${index}`}
           className={`city-card relative flex-none w-[220px] h-[300px] sm:w-[260px] sm:h-[350px] md:w-[300px] md:h-[400px] ${city.rotation} hover:scale-105 transition-transform duration-300`}
         >
-          <img
+          <Image
             src={city.image}
             alt={city.name}
-            className="w-full h-full object-cover rounded-xl shadow-2xl"
-            loading="lazy"
+            fill
+            className="object-cover rounded-xl shadow-2xl"
+            sizes="(max-width: 768px) 220px, 300px"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl" />
+          <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent rounded-xl" />
           <h1 className="city-name absolute bottom-4 left-4 sm:bottom-6 sm:left-6 text-white text-xl sm:text-2xl md:text-3xl font-bold drop-shadow-lg">
             {city.name}
           </h1>

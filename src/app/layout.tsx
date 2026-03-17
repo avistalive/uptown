@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Poppins, Lato, Playfair_Display } from "next/font/google";
+import { Poppins } from "next/font/google";
 import "./globals.css";
 import { SessionProvider } from "next-auth/react";
 import { auth } from "@/auth";
@@ -27,23 +27,13 @@ const poppins = Poppins({
   variable: "--font-poppins",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
-});
-
-const lato = Lato({
-  subsets: ["latin"],
-  weight: ["300", "400", "700"],
-  variable: "--font-lato",
-});
-
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  style: ["normal", "italic"],
-  variable: "--font-playfair",
+  display: 'swap',
 });
 
 const ivyPrestoThin = localFont({
   src: "../../public/fonts/ivy-presto-thin.otf",
   variable: "--font-ivy-presto",
+  display: 'swap',
 });
 
 export const metadata: Metadata = {
@@ -62,10 +52,8 @@ export default async function RootLayout({
     <html lang="en">
       <body
         className={cn(
-          "antialiased",
+          "antialiased font-poppins",
           poppins.variable,
-          lato.variable,
-          playfair.variable,
           ivyPrestoThin.variable
         )}
       >

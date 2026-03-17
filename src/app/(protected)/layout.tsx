@@ -6,8 +6,14 @@ export default async function ProtectedLayout({
   children,
 }: ProtectedLayoutProps) {
   return (
-    <div className="h-full bg-sky-300">
-      {children}
+    <div className="min-h-screen w-full flex flex-col bg-slate-50 relative overflow-hidden">
+      {/* Decorative background element */}
+      <div className="absolute -top-[10%] -right-[5%] w-[40vw] h-[40vw] bg-midnight/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-[10%] -left-[5%] w-[30vw] h-[30vw] bg-midnight/5 rounded-full blur-3xl pointer-events-none" />
+      
+      <div className="relative z-10 w-full grow">
+        {children}
+      </div>
     </div>
   );
 }

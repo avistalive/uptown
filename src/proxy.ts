@@ -10,7 +10,7 @@ import {
 const { auth } = NextAuth(authConfig);
 
 // Static files that should never be processed by auth middleware
-const staticFiles = ["/manifest.json", "/sw.js", "/workbox-4754cb34.js"];
+const staticFiles = ["/manifest.json", "/sw.js", "/workbox-4754cb34.js", "/videoplayback.mp4"];
 
 export default auth((req) => {
   const { nextUrl } = req;
@@ -45,8 +45,8 @@ export default auth((req) => {
 
 export const config = {
   matcher: [
-    // Exclude static files including json (manifest.json) and js (sw.js)
-    "/((?!_next|[^?]*\\.(?:html?|css|js|json|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest)).*)",
+    // Exclude static files including mp4, json (manifest.json) and js (sw.js)
+    "/((?!_next|[^?]*\\.(?:html?|css|js|json|jpe?g|webp|png|gif|svg|ttf|woff2?|ico|csv|docx?|xlsx?|zip|webmanifest|mp4)).*)",
     // Always run for API routes
     "/(api|trpc)(.*)",
   ],

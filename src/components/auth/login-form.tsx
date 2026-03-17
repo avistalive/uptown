@@ -104,13 +104,14 @@ export const LoginForm = () => {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="font-light text-gray-700">Email</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           disabled={isPending}
                           placeholder="example@gmail.com"
                           type="email"
+                          className="rounded-xl border-midnight/10 h-12 focus-visible:ring-midnight/20"
                         />
                       </FormControl>
                       <FormMessage />
@@ -122,13 +123,14 @@ export const LoginForm = () => {
                   name="password"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel className="font-light text-gray-700">Password</FormLabel>
                       <FormControl>
                         <Input
                           {...field}
                           disabled={isPending}
                           placeholder="******"
                           type="password"
+                          className="rounded-xl border-midnight/10 h-12 focus-visible:ring-midnight/20"
                         />
                       </FormControl>
 
@@ -136,9 +138,9 @@ export const LoginForm = () => {
                         size={"sm"}
                         variant={"link"}
                         asChild
-                        className="px-0 font-normal"
+                        className="px-0 font-light text-midnight hover:no-underline"
                       >
-                        <Link href="/auth/reset">Forget Password ?</Link>
+                        <Link href="/auth/reset">Forgot Password?</Link>
                       </Button>
                       <FormMessage />
                     </FormItem>
@@ -149,11 +151,10 @@ export const LoginForm = () => {
           </div>
           <Button
             disabled={isPending}
-            onClick={() => {}}
             type="submit"
-            className="w-full"
+            className="w-full bg-midnight hover:bg-midnight/90 text-white rounded-full py-6 text-base font-medium transition-all duration-300"
           >
-            {showTwoFactor ? "confirm" : "Login"}
+            {showTwoFactor ? "Confirm" : "Login"}
           </Button>
         </form>
       </Form>

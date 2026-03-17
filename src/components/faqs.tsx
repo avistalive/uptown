@@ -36,13 +36,13 @@ export const faqList = [
 
 function Faq() {
   return (
-    <section className="py-12 sm:py-16 md:py-24">
+    <section className="py-8 md:py-12">
       <div className="container mx-auto px-5 sm:px-6">
         {/* Heading */}
         <div className="max-w-2xl mx-auto text-center mb-8 sm:mb-10 md:mb-12">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-[#00141D]">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-light text-midnight">
             Got{" "}
-            <span className="font-ivy-presto font-bold">
+            <span className="font-ivy-presto font-normal italic">
               questions?
             </span>
           </h2>
@@ -65,7 +65,7 @@ function Faq() {
                     {item.faq_que}
                   </h4>
                 </AccordionTrigger>
-                <AccordionContent className="p-4 sm:p-5 border-t border-midnight ">
+                <AccordionContent className="p-4 sm:p-5 border-t border-[#00141D]/10">
                   <p className="text-gray-700 text-sm sm:text-base md:text-lg leading-relaxed">
                     {item.faq_ans}
                   </p>

@@ -21,12 +21,12 @@ const Stats = () => {
   ];
 
   return (
-    <section className="stats-section py-12 sm:py-16 md:py-20 bg-[#F0ECDF]">
+    <section className="stats-section py-8 md:py-12 bg-white">
       <div className="container mx-auto px-5 sm:px-6">
         {/* Completed Projects */}
         <div className="mb-12 sm:mb-16 md:mb-20">
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 text-[#00141D] font-light">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 text-midnight font-light">
               Our{" "}<span className="font-ivy-presto font-normal italic">Legacy</span>
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light">Reflecting years of trust and excellence in Navi Mumbai</p>
@@ -35,7 +35,7 @@ const Stats = () => {
             {completedStats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-[#00141D] p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-[#EFEBDF] text-center"
+                className="bg-midnight p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-[#EFEBDF] text-center"
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-1">
                   {stat.value}
@@ -51,7 +51,7 @@ const Stats = () => {
         {/* Ongoing Projects */}
         <div>
           <div className="text-center mb-8 sm:mb-10 md:mb-12">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 text-[#00141D] font-light">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl mb-2 sm:mb-3 text-midnight font-light">
               Future{" "}<span className="font-ivy-presto font-normal italic">Horizons</span>
             </h2>
             <p className="text-sm sm:text-base text-gray-600 font-light">Current developments shaping the tomorrow of real estate</p>
@@ -60,7 +60,7 @@ const Stats = () => {
             {ongoingStats.map((stat, index) => (
               <div
                 key={index}
-                className="bg-white/50 border border-[#00141D]/10 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-[#00141D] text-center"
+                className="bg-white border border-midnight/10 p-5 sm:p-6 md:p-8 rounded-xl sm:rounded-2xl text-midnight text-center"
               >
                 <div className="text-2xl sm:text-3xl md:text-4xl font-semibold mb-1">
                   {stat.value}

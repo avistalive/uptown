@@ -12,6 +12,7 @@ const nextConfig = {
   reactCompiler: true,
   turbopack: {},
   images: {
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       {
         protocol: "https",

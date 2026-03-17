@@ -19,7 +19,8 @@ export const LoginButton = ({
 
     const router = useRouter();
     const onClick = () => {
-        router.push(redirect || "/auth/login")
+        router.refresh();
+        router.push(redirect || "/auth/login");
     }
 
 if(mode === "modal"){

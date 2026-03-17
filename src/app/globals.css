@@ -11,8 +11,9 @@ height: 100%;
 
 
 @theme {
-  --color-background: #f4f1ec;
-  --color-midnight: #00141D;
+  --color-background: #ffffff;
+  --color-primary: #1A56A5;
+  --color-midnight: #1A56A5;
   --color-vista-gray: #8a8a8a;
   --color-vista-gray-light: #eae8e4;
   --color-vista-white: #ffffff;

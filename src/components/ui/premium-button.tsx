@@ -10,7 +10,7 @@ interface PremiumButtonProps {
   href?: string;
   className?: string;
   icon?: React.ReactNode;
-  variant?: "primary" | "secondary";
+  variant?: "primary" | "secondary" | "white";
 }
 
 const PremiumButton = ({
@@ -23,17 +23,20 @@ const PremiumButton = ({
 }: PremiumButtonProps) => {
   const baseClasses = cn(
     "group relative flex items-center justify-center rounded-full py-1.5 px-6 transition-all duration-500 ease-out overflow-hidden shadow-xl hover:shadow-2xl",
-    variant === "primary" 
-      ? "bg-[#EFEBDF] text-[#00141D] border border-white/10" 
-      : "bg-transparent text-white border border-white/30 hover:bg-white/10",
+    variant === "primary" && "bg-midnight text-white border border-white/10",
+    variant === "secondary" && "bg-transparent text-midnight border border-midnight/30 hover:bg-midnight/10",
+    variant === "white" && "bg-white text-midnight border border-midnight/10",
     className
   );
 
   const RobustButtonBody = () => (
     <div className="flex items-center gap-3">
       {/* Icon on left - Hidden initially */}
-      <div className="absolute left-1.5 w-8 h-8 rounded-full bg-[#00141D] flex items-center justify-center opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out group-hover:rotate-45">
-        {icon || <ArrowUpRight size={16} className="text-[#EFEBDF]" />}
+      <div className={cn(
+        "absolute left-1.5 w-8 h-8 rounded-full flex items-center justify-center opacity-0 -translate-x-full group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 ease-in-out group-hover:rotate-45",
+        variant === "white" ? "bg-midnight" : "bg-white"
+      )}>
+        {icon || <ArrowUpRight size={16} className={variant === "white" ? "text-white" : "text-midnight"} />}
       </div>
       
       {/* Text in middle - Moves right */}
@@ -42,8 +45,11 @@ const PremiumButton = ({
       </span>
 
       {/* Icon on right - Hidden on hover */}
-      <div className="w-8 h-8 rounded-full bg-[#00141D] flex items-center justify-center group-hover:opacity-0 group-hover:translate-x-full transition-all duration-500 ease-in-out">
-        {icon || <ArrowUpRight size={16} className="text-[#EFEBDF]" />}
+      <div className={cn(
+        "w-8 h-8 rounded-full flex items-center justify-center group-hover:opacity-0 group-hover:translate-x-full transition-all duration-500 ease-in-out",
+        variant === "white" ? "bg-midnight/10" : "bg-white/20"
+      )}>
+        {icon || <ArrowUpRight size={16} className={variant === "white" ? "text-midnight" : "text-white"} />}
       </div>
     </div>
   );
